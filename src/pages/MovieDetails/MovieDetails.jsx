@@ -22,7 +22,7 @@ const MovieDetails = () => {
       }
     };
     fetchDetails();
-  }, []);
+  }, [movieId]);
 
   const { poster_path, title, vote_average, overview, genres } = details;
   const score = Math.trunc(vote_average * 10);
