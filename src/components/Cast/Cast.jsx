@@ -19,7 +19,7 @@ const Cast = () => {
       }
     };
     fetchCast();
-  }, []);
+  }, [movieId]);
 
   return (
     status === 'finish' && (
