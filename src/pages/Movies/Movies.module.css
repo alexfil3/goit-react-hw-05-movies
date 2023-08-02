@@ -1,0 +1,36 @@
+.form {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
+.input {
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 4px 8px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.button {
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.button:hover,
+.button:focus {
+    background-color: green;
+    cursor: pointer;
+}
+
+.item {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
