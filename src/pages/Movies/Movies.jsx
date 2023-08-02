@@ -6,12 +6,12 @@ import css from './Movies.module.css';
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('name') ?? '';
-  const [movie, setMovie] = useState('');
+  const [movie, setMovie] = useState(searchParams.get('name') ?? '');
   const [searchMovie, setSearchMovie] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
-    if (searchParams.get('name') === null) return;
+    if (movie === '') return;
 
     const fetchMovies = async () => {
       try {
@@ -23,20 +23,6 @@ const Movies = () => {
     };
     fetchMovies();
   }, [movie]);
-
-  useEffect(() => {
-    if (searchParams.get('name') === null) return;
-
-    const fetchMovies = async () => {
-      try {
-        const movies = await API.search(searchParams.get('name'));
-        setSearchMovie(movies);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchMovies();
-  }, []);
 
   const onSubmit = e => {
     e.preventDefault();
