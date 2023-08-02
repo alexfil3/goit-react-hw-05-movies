@@ -19,7 +19,7 @@ const Reviews = () => {
       }
     };
     fetchReviews();
-  }, []);
+  }, [movieId]);
 
   return (
     status === 'finish' &&
