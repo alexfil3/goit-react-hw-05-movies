@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams, Link, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import API from 'services/moviesAPI';
 import css from './Movies.module.css';
+import SearchMovieList from 'components/SearchMovieList/SearchMovieList';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('name') ?? '';
   const [movie, setMovie] = useState(searchParams.get('name') ?? '');
   const [searchMovie, setSearchMovie] = useState([]);
-  const location = useLocation();
 
   useEffect(() => {
     if (movie === '') return;
@@ -54,19 +54,7 @@ const Movies = () => {
         </button>
       </form>
       {searchMovie && searchParams.get('name') !== null && (
-        <ul>
-          {searchMovie.map(({ id, title }) => (
-            <li key={id}>
-              <Link
-                to={`${id}`}
-                state={{ from: location }}
-                className={css.item}
-              >
-                {title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <SearchMovieList searchMovie={searchMovie} />
       )}
     </main>
   );

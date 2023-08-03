@@ -1,20 +1,24 @@
 import { Link, useLocation } from 'react-router-dom';
 import css from './TopRatedMovies.module.css';
-import PropTypes from 'prop-types';
 
-const TopRatedMovies = ({ title, id }) => {
+const TopRatedMovies = ({ movies }) => {
   const location = useLocation();
 
   return (
-    <Link to={`movies/${id}`} state={{ from: location }} className={css.item}>
-      {title}
-    </Link>
+    <ul className={css.list}>
+      {movies.map(({ title, id }) => (
+        <li key={id}>
+          <Link
+            to={`movies/${id}`}
+            state={{ from: location }}
+            className={css.item}
+          >
+            {title}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };
 
 export default TopRatedMovies;
-
-TopRatedMovies.propTypes = {
-  title: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-};
