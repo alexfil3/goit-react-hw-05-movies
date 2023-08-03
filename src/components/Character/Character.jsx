@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Character = ({ name, character, profile_path }) => {
+const Character = ({ name = '', character = '', profile_path = '' }) => {
   const img = `https://image.tmdb.org/t/p/w500${profile_path}`;
 
   const imageUrl = profile_path !== null ? img : require('./default-img.jpg');

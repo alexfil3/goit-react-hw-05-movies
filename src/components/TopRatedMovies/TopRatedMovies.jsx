@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import css from './TopRatedMovies.module.css';
 
-const TopRatedMovies = ({ movies }) => {
+const TopRatedMovies = ({ movies = [] }) => {
   const location = useLocation();
 
   return (

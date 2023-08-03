@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Review = ({ author, content }) => {
+const Review = ({ author = '', content = '' }) => {
   return (
     <div>
       <p>Author: {author}</p>
